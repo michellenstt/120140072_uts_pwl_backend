@@ -1,0 +1,33 @@
+@baseUrl = http://127.0.0.1:6543/api/v1/produk
+
+### GET all
+GET {{baseUrl}}
+
+### GET by id
+GET {{baseUrl}}?id=1
+
+### POST
+POST {{baseUrl}}
+
+{
+    "nama": "Topi",
+    "harga": 10000,
+    "stok": 10,
+    "deskripsi": "Topi keren",
+    "gambar": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
+}
+
+### PUT
+PUT {{baseUrl}}
+
+{
+    "id": 1,
+    "nama": "Topi Coba",
+    "harga": 10000,
+    "stok": 10,
+    "deskripsi": "Topi keren",
+    "gambar": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
+}
+
+### DELETE
+DELETE {{baseUrl}}?id=1
