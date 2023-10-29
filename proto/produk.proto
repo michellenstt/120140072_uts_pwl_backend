@@ -1,0 +1,78 @@
+syntax = "proto3";
+
+package tas;
+
+message Tas {
+  int32 id = 1;
+  string nama = 2;
+  string deskripsi = 3;
+  float harga = 4;
+  string gambar = 5;
+  int32 stok = 6;
+}
+
+message TasListRequest {
+  
+}
+
+message TasListResponse {
+  repeated Tas tas = 1;
+}
+
+message TasDetailRequest {
+  int32 id = 1;
+}
+
+message TasDetailResponse {
+  Tas tas = 1;
+}
+
+message TasCreateRequest {
+  string nama = 1;
+  string deskripsi = 2;
+  float harga = 3;
+  string gambar = 4;
+  int32 stok = 5;
+}
+
+message TasCreateResponse {
+  Tas tas = 1;
+}
+
+message TasUpdateRequest {
+  int32 id = 1;
+  string nama = 2;
+  string deskripsi = 3;
+  float harga = 4;
+  string gambar = 5;
+  int32 stok = 6;
+}
+
+message TasUpdateResponse {
+  Tas tas = 1;
+}
+
+message TasDeleteRequest {
+  int32 id = 1;
+}
+
+message TasDeleteResponse {
+  
+}
+
+message HitungHargaRequest {
+  repeated int32 id = 1;
+}
+
+message HitungHargaResponse {
+  float total = 1;
+}
+
+service TasService {
+  rpc List(TasListRequest) returns (TasListResponse);
+  rpc Detail(TasDetailRequest) returns (TasDetailResponse);
+  rpc Create(TasCreateRequest) returns (TasCreateResponse);
+  rpc Update(TasUpdateRequest) returns (TasUpdateResponse);
+  rpc Delete(TasDeleteRequest) returns (TasDeleteResponse);
+  rpc HitungHarga(HitungHargaRequest) returns (HitungHargaResponse);
+}
