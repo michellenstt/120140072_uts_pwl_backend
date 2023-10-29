@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package tas;
+package paroduk;
 
-message Tas {
+message Produk {
   int32 id = 1;
   string nama = 2;
   string deskripsi = 3;
@@ -11,23 +11,23 @@ message Tas {
   int32 stok = 6;
 }
 
-message TasListRequest {
+message ProdukListRequest {
   
 }
 
-message TasListResponse {
-  repeated Tas tas = 1;
+message ProdukListResponse {
+  repeated Produk produk = 1;
 }
 
-message TasDetailRequest {
+message ProdukDetailRequest {
   int32 id = 1;
 }
 
-message TasDetailResponse {
-  Tas tas = 1;
+message ProdukDetailResponse {
+  Produk Produk = 1;
 }
 
-message TasCreateRequest {
+message ProdukCreateRequest {
   string nama = 1;
   string deskripsi = 2;
   float harga = 3;
@@ -35,11 +35,11 @@ message TasCreateRequest {
   int32 stok = 5;
 }
 
-message TasCreateResponse {
-  Tas tas = 1;
+message ProdukCreateResponse {
+  Produk produk = 1;
 }
 
-message TasUpdateRequest {
+message ProdukUpdateRequest {
   int32 id = 1;
   string nama = 2;
   string deskripsi = 3;
@@ -48,15 +48,15 @@ message TasUpdateRequest {
   int32 stok = 6;
 }
 
-message TasUpdateResponse {
-  Tas tas = 1;
+message ProdukUpdateResponse {
+  Produk Produk = 1;
 }
 
-message TasDeleteRequest {
+message ProdukDeleteRequest {
   int32 id = 1;
 }
 
-message TasDeleteResponse {
+message ProdukDeleteResponse {
   
 }
 
@@ -68,11 +68,11 @@ message HitungHargaResponse {
   float total = 1;
 }
 
-service TasService {
-  rpc List(TasListRequest) returns (TasListResponse);
-  rpc Detail(TasDetailRequest) returns (TasDetailResponse);
-  rpc Create(TasCreateRequest) returns (TasCreateResponse);
-  rpc Update(TasUpdateRequest) returns (TasUpdateResponse);
-  rpc Delete(TasDeleteRequest) returns (TasDeleteResponse);
+service ProdukService {
+  rpc List(ProdukListRequest) returns (ProdukListResponse);
+  rpc Detail(ProdukDetailRequest) returns (ProdukDetailResponse);
+  rpc Create(ProdukCreateRequest) returns (ProdukCreateResponse);
+  rpc Update(ProdukUpdateRequest) returns (ProdukUpdateResponse);
+  rpc Delete(ProdukDeleteRequest) returns (ProdukDeleteResponse);
   rpc HitungHarga(HitungHargaRequest) returns (HitungHargaResponse);
 }
