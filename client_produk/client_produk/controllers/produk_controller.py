@@ -62,6 +62,7 @@ class ProdukController:
 
             return Response(status=200, json_body={"status": True, "data": produk})
         except Exception as e:
+            print(e)
             return Response(status=500, json_body={"status": False, "message": str(e)})
 
     @view_config(request_method="PUT", renderer="json")
@@ -90,8 +91,6 @@ class ProdukController:
                 self.request.json_body["stok"],
             )
 
-            print(produk)
-
             if produk is None:
                 return Response(
                     status=404,
@@ -101,6 +100,7 @@ class ProdukController:
             return Response(status=200, json_body={"status": True, "data": produk})
 
         except Exception as e:
+            print(e)
             return Response(status=500, json_body={"status": False, "message": str(e)})
 
     @view_config(request_method="DELETE", renderer="json")
@@ -114,8 +114,6 @@ class ProdukController:
 
             client = ProductClient()
             produk = client.delete(id=int(self.request.params.get("id")))
-
-            print(produk)
 
             if produk is None:
                 return Response(

@@ -78,6 +78,8 @@ class ProductsServicer(produk_pb2_grpc.ProdukServiceServicer):
                     deskripsi=request.deskripsi,
                 )
 
+                conn.execute(stmt)
+
                 conn.commit()
             return produk_pb2.ProdukCreateResponse(
                 produk=produk_pb2.Produk(
@@ -105,6 +107,7 @@ class ProductsServicer(produk_pb2_grpc.ProdukServiceServicer):
                         harga=request.harga,
                         stok=request.stok,
                         gambar=request.gambar,
+                        deskripsi=request.deskripsi,
                     )
                 )
 

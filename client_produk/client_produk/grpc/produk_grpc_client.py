@@ -34,8 +34,6 @@ class ProductClient:
     def get_by_id(self, id):
         response = self.stub.Detail(products_pb2.ProdukDetailRequest(id=id))
 
-        print(response)
-
         if response.Produk == None:
             return None
 
@@ -60,7 +58,6 @@ class ProductClient:
         )
 
         return dict(
-            id=response.produk.id,
             nama=response.produk.nama,
             deskripsi=response.produk.deskripsi,
             harga=response.produk.harga,
@@ -79,6 +76,9 @@ class ProductClient:
                 nama=nama,
             )
         )
+
+        if response.Produk is None:
+            return None
 
         return dict(
             id=response.Produk.id,
